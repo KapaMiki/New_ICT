@@ -204,11 +204,13 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
    <script>
-      $(document).ready(function(){
+      $(document).ready(function() {
+         const studendElement = document.getElementById('student');
+         let str = ''
+
          $('.group').on('click', function(e){
             e.preventDefault()
             group_id = $(this).attr('data-id')
-            console.log(group_id)
             data = {
                group_id:group_id
             }
@@ -217,7 +219,10 @@
                url: '{% url "group_students_url" %}',
                data: data,
                success: function(data){
-                  $("#student").html(data)
+                  Object.keys(data).forEach(idx => {
+                     str += `<p id="student">${data[idx].user__first_name} ${data[idx].user__last_name}</p>`
+                     studendElement.innerHTML = str  
+                  })
                }
             })
          })
