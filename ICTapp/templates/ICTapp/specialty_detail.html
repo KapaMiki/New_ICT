@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}{{ speciality.name }}{% endblock %}
+
+{% block content %}
+   <div class="app-header parallax-window" data-parallax="scroll" data-image-src="/media/background-images/books.jpg">
+      <h1>Специальности</h1>
+   </div>
+
+   <section id="specialty" class="specialty section">
+      <div class="wrapper app-wrap flex j-sb">
+         <div class="app-box">
+            <h3 class="specialty-title">{{ speciality.name }}</h3>
+
+            <ul class="uk-breadcrumb breadcrumb">
+               <li><a href="{% url 'home_url' %}">Главная</a></li>
+               <li><a href="{% url 'specialty_url' %}">Специальности</a></li>
+               <li><span>{{ speciality.name }}</span></li>
+            </ul>
+
+            <div class="specialty-box">
+               <p>Стоимость обучения в год - <strong>{{ speciality.price }}тг</strong></p>
+               <ul class="uk-tab-bottom" uk-tab>
+                  <li class="uk-active"><a href="#">Описание программы</a></li>
+                  <li><a href="#">Основные дисциплины</a></li>
+                  <li><a href="#">Карьерные перспективы</a></li>
+               </ul>
+               <ul class="uk-switcher uk-margin">
+                  <li>
+                     <dl class="uk-description-list">
+                        <dt class="specialty-box__desc-title">Описание</dt>
+                        <dd>
+                           {{ speciality.description|safe }} 
+                        </dd>
+
+                        <dt class="specialty-box__desc-title">Цель</dt>
+                        <dd>
+                           {{ speciality.purpose|safe }}
+                        </dd>
+                        {% if speciality.tasks %}
+                           <dt class="specialty-box__desc-title">Задачи</dt>
+                           <dd class="border-none">
+                              {{ speciality.tasks|safe }}
+                           </dd>
+                        {% endif %}
+                     </dl>
+                  </li>
+                  <li>
+                     <ul class="uk-list uk-list-divider">
+                        {% for discipline in speciality.disciplines.all %}
+                           <li>{{ discipline }}</li>
+                        {% endfor %}
+                     </ul>
+                  </li>
+                  <li>
+                     <p>
+                        {{ speciality.perspectives|safe }}
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         
+         {% include 'includes/latest_news.html' %}
+      </div>
+   </section>
+   
+   <script>
+      const activeListItem = document.querySelectorAll('.responsive-menu-box li')[2];
+      activeListItem.classList.add('uk-active');
+   </script>
+{% endblock content %}

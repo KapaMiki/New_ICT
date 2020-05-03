@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}ICT - Задания{% endblock %}
+
+{% block content %}
+   <div class="app-header parallax-window" data-parallax="scroll" data-image-src="/media/background-images/student-life.jpg">
+      <h1>Практические задания</h1>
+   </div>
+
+   <section id="information" class="information section">
+      <div class="wrapper">
+         <ul class="uk-breadcrumb breadcrumb">
+            <li><a href="{% url 'home_url' %}">Главная</a></li>
+            <li><span>Задания</span></li>
+         </ul>
+
+         <div class="information-box">
+            {% for information in informations %}
+               <div class="information-box__item flex j-sb flex-align-center">
+                  <div class="information-box__img responsive-menu-information-box__img">
+                     <img src="{{ information.img_main.url }}" alt="news">
+                  </div>
+
+                  <p class="information-box__date">ATU <span>site</span></p>
+
+                  <div class="information-box__text">
+                     <h3 class="information-box__title text-title">
+                        <!-- <a class="transition" href="{{ information.get_absolute_url }}">{{ information.title }}</a> -->
+                        <form action="{% url 'download_practice' information.id %}" method="POST" type="hidden">
+                           {% csrf_token %}
+                              <button class="transition">
+                                 {{ information.title }}
+                              </button>
+                        </form>
+                     </h3>
+                     <p class="information-box__location text-title">{{ information.location }}</p>
+                     <p class="text-desc">{{ information.text }}</p>
+                  </div>
+   
+                  <div class="information-box__img hidden-information-box__img">
+                     <img src="{{ information.img_main.url }}" alt="news">
+                  </div>
+               </div>
+            {% endfor %}
+         </div>
+      </div>
+   </section>
+
+   <script>
+      const activeListItem = document.querySelectorAll('.responsive-menu-box li')[3];
+      activeListItem.classList.add('uk-active');
+   </script>
+{% endblock content %}

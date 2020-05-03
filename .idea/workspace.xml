@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0c489793-1386-423f-a1b1-fa951a0553a1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="ProjectId" id="1ScCWgEhYn3YtAkgNzPhZ8UaFLF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ICTapp" />
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/media" />
+      <recent name="$PROJECT_DIR$/static/css" />
+      <recent name="$PROJECT_DIR$/static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/semesters/templates" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="showServicesTree" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c489793-1386-423f-a1b1-fa951a0553a1" name="Default Changelist" comment="" />
+      <created>1556201901117</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556201901117</updated>
+      <workItem from="1556201923384" duration="83000" />
+      <workItem from="1559548940289" duration="603000" />
+      <workItem from="1571853534641" duration="15385000" />
+      <workItem from="1572098276281" duration="4621000" />
+      <workItem from="1572428481514" duration="5189000" />
+      <workItem from="1572809827642" duration="29000" />
+      <workItem from="1572809858109" duration="146000" />
+      <workItem from="1573675470375" duration="571000" />
+      <workItem from="1573691716782" duration="1332000" />
+      <workItem from="1584613318989" duration="2286000" />
+      <workItem from="1585644054840" duration="2226000" />
+      <workItem from="1585736324053" duration="814000" />
+      <workItem from="1585853706355" duration="333000" />
+      <workItem from="1586170883496" duration="683000" />
+      <workItem from="1586230493416" duration="19000" />
+      <workItem from="1586461354853" duration="2626000" />
+      <workItem from="1586474227354" duration="1213000" />
+      <workItem from="1586772514796" duration="6291000" />
+      <workItem from="1587046891759" duration="1881000" />
+      <workItem from="1587954527854" duration="1616000" />
+      <workItem from="1587974854969" duration="3273000" />
+      <workItem from="1587985268362" duration="3111000" />
+    </task>
+    <task id="LOCAL-00001" summary="add (Select User / Select Week)">
+      <created>1587988350465</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587988350465</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add (Select User / Select Week)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add (Select User / Select Week)" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="583" y="119" key="CommitChangelistDialog2" timestamp="1587988609267">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="583" y="119" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1587988609267" />
+    <state x="184" y="93" key="DiffContextDialog" timestamp="1587988596027">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="184" y="93" key="DiffContextDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587988596027" />
+    <state x="466" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1587962264090">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="466" y="155" key="FileChooserDialogImpl/0.27.1366.741/1366.0.1920.1080@0.27.1366.741" timestamp="1585736536581" />
+    <state x="466" y="155" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1587962264090" />
+    <state x="552" y="259" key="Vcs.Push.Dialog.v2" timestamp="1587988620046">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="259" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587988620046" />
+    <state x="339" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1586230493847">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="339" y="225" key="com.intellij.ide.util.TipDialog/0.27.1366.741@0.27.1366.741" timestamp="1586230493847" />
+    <state x="638" y="404" width="448" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587988376388">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="638" y="404" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587988376388" />
+    <state x="454" y="312" width="448" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1366.741@0.27.1366.741" timestamp="1587975853648" />
+    <state x="241" y="151" width="618" height="518" key="find.popup" timestamp="1587954753757">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="241" y="151" width="618" height="518" key="find.popup/0.27.1366.741@0.27.1366.741" timestamp="1587954753757" />
+  </component>
+</project>

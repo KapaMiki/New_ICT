@@ -1,0 +1,1246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>STUDY - Учебный портал</title>
+
+   <!-- Global stylesheets -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/icons/icomoon/styles.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/bootstrap_limitless.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/layout.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/components.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/colors.min.css' %}" rel="stylesheet" type="text/css">
+   <!-- /global stylesheets -->
+
+   <!-- Core JS files -->
+   <script src="{% static 'js/main/jquery.min.js' %}"></script>
+   <script src="{% static 'js/main/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'js/plugins/loaders/blockui.min.js' %}"></script>
+   <!-- /core JS files -->
+
+   <!-- Theme JS files -->
+   <script src="{% static 'js/plugins/visualization/d3/d3.min.js' %}"></script>
+   <script src="{% static 'js/plugins/visualization/d3/d3_tooltip.js' %}"></script>
+   <script src="{% static 'js/plugins/forms/styling/switchery.min.js' %}"></script>
+   <script src="{% static 'js/plugins/ui/moment/moment.min.js' %}"></script>
+   <script src="{% static 'js/plugins/pickers/daterangepicker.js' %}"></script>
+
+   <script src="{% static 'js/app.js' %}"></script>
+   <script src="{% static 'js/all.min.js' %}"></script>
+   <script src="{% static 'js/demo_pages/dashboard.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/streamgraph.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/sparklines.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/lines.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/areas.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/donuts.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/bars.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/progress.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/heatmaps.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/pies.js' %}"></script>
+   <script src="{% static 'js/demo_charts/pages/dashboard/dark/bullets.js' %}"></script>
+   <!-- /theme JS files -->
+
+   <style>
+      .week-container {
+         display: flex;
+         margin-bottom: 15px;
+         margin-top: 1px;
+         flex-wrap: wrap;
+      }
+
+      .week-item {
+         background: #353F53;
+         padding: 8px 10px;
+         border-radius: 2px;
+         width: 40px;
+         text-align: center;
+         box-sizing: border-box;
+         transition: all 0.3s;
+         cursor: pointer;
+         margin-bottom: 5px;
+         margin-right: 5.4px;
+      }
+
+      .week-item-active {
+         background: #03A9F4;
+      }
+
+      .week-item:last-child {
+         margin-right: 0;
+      }
+
+      .week-item:hover {
+         background: #03A9F4;
+      }
+   </style>
+</head>
+
+<body>
+
+<!-- Main navbar -->
+<div class="navbar navbar-expand-md navbar-light navbar-static">
+   <div class="navbar-brand" style="font-size: 15px">
+      <a href="/" class="mr-1">ГЛАВНАЯ</a>
+
+      STUDY
+   </div>
+
+   <div class="d-md-none">
+      <button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+         <i class="fas fa-bars"></i>
+      </button>
+   </div>
+
+   <div class="collapse navbar-collapse" id="navbar-mobile">
+      <span class="badge bg-success my-3 my-md-0 ml-md-3 mr-md-auto">Online</span>
+
+      <ul class="navbar-nav">
+         <li class="nav-item dropdown dropdown-user">
+            <a href="#" class="navbar-nav-link d-flex align-items-center" data-toggle="dropdown">
+               <img src="/media/demo/users/face11.jpg" class="rounded-circle mr-2" height="34" alt="">
+               <span>Джони</span>
+               <i class="fas fa-chevron-down ml-1"></i>
+            </a>
+
+<!--            <div class="dropdown-menu dropdown-menu-right">-->
+<!--               <a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>-->
+<!--               <a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>-->
+<!--               <a href="#" class="dropdown-item">-->
+<!--                  <i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">58</span>-->
+<!--               </a>-->
+<!--               <div class="dropdown-divider"></div>-->
+<!--               <a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>-->
+<!--               <a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>-->
+<!--            </div>-->
+         </li>
+      </ul>
+   </div>
+</div>
+<!-- /main navbar -->
+
+<!-- Page content -->
+<div class="page-content">
+
+   <!-- Main sidebar -->
+   <div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
+
+      <!-- Sidebar mobile toggler -->
+      <div class="sidebar-mobile-toggler text-center">
+         <a href="#" class="sidebar-mobile-main-toggle">
+            <i class="fas fa-arrow-left"></i>
+         </a>
+         Navigation
+         <a href="#" class="sidebar-mobile-expand">
+            <i class="fas fa-compress"></i>
+         </a>
+      </div>
+      <!-- /sidebar mobile toggler -->
+
+
+      <!-- Sidebar content -->
+      <div class="sidebar-content">
+
+         <!-- User menu -->
+         <div class="sidebar-user">
+            <div class="card-body">
+               <div class="media">
+                  <div class="mr-3">
+                     <a href="#">
+                        <img src="/media/demo/users/face11.jpg" width="38" height="38" class="rounded-circle" alt="">
+                     </a>
+                  </div>
+
+                  <div class="media-body">
+                     <div class="media-title font-weight-semibold">Джони Деп</div>
+                     <div class="font-size-xs opacity-50">
+                        Казахский
+                     </div>
+                  </div>
+               </div>
+
+               <div class="font-weight-semibold mt-3 mb-2">
+                  Автоматизация и управление
+               </div>
+
+               <div class="font-weight-semibold mb-2">
+                  Учебная кафедра автоматики и информационных технологий
+               </div>
+
+               <div class="font-weight-semibold mb-2">
+                  Факультет информационно-коммуникационных технологий
+               </div>
+
+               <div class="font-weight-semibold">
+                  Курс - <span class="opacity-50">3</span>
+               </div>
+
+               <div class="font-weight-semibold">
+                  Группа - <span class="opacity-50">АУ-701</span>
+               </div>
+
+               <div class="font-weight-semibold">
+                  Форма обучения - <span class="opacity-50">Очное полное (бакалавриат)</span>
+               </div>
+            </div>
+         </div>
+         <!-- /user menu -->
+
+
+         <!-- Main navigation -->
+         <div class="card card-sidebar-mobile">
+            <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+               <!-- Main -->
+               <li class="nav-item-header">
+                  <div class="text-uppercase font-size-xs line-height-xs">Главная</div>
+                  <i class="icon-menu" title="Main"></i>
+               </li>
+               <li class="nav-item">
+                  <a href="/semester/" class="nav-link active">
+                     <span class="mr-2"><i class="fas fa-home"></i></span>
+                     <span>Главная панель</span>
+                  </a>
+               </li>
+               <!-- /main -->
+
+            </ul>
+         </div>
+         <!-- /main navigation -->
+
+      </div>
+      <!-- /sidebar content -->
+
+   </div>
+   <!-- /main sidebar -->
+
+
+   <!-- Main content -->
+   <div class="content-wrapper">
+
+      <!-- Content area -->
+      <div class="content pt-0 mt-3">
+         <!-- Dashboard content -->
+         <div class="row">
+            <div class="col-xl-8">
+
+               <!-- Marketing campaigns -->
+               <h6 class="card-title">Недели</h6>
+
+               <div class="week-container">
+                  <p class="week-item week-item-active">1</p>
+                  <p class="week-item">2</p>
+                  <p class="week-item">3</p>
+                  <p class="week-item">4</p>
+                  <p class="week-item">5</p>
+                  <p class="week-item">6</p>
+                  <p class="week-item">7</p>
+                  <p class="week-item">8</p>
+                  <p class="week-item">9</p>
+                  <p class="week-item">10</p>
+                  <p class="week-item">11</p>
+                  <p class="week-item">12</p>
+                  <p class="week-item">13</p>
+                  <p class="week-item">14</p>
+                  <p class="week-item">15</p>
+               </div>
+               <div class="card">
+                  <div class="card-header header-elements-sm-inline">
+                     <h6 class="card-title">Расписание</h6>
+                     <div class="header-elements">
+                        <span class="badge bg-success badge-pill">28 предметов</span>
+                     </div>
+                  </div>
+                  <div class="table-responsive">
+                     <table class="table text-nowrap">
+                        <thead>
+                        <tr>
+                           <th>Предметы</th>
+                           <th>Тип</th>
+                           <th>Оценка</th>
+                           <th>СРО</th>
+                           <th>Статус</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="table-active table-border-double">
+                           <td colspan="5">Понедельник</td>
+                        </tr>
+
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Промышленные контроллеры</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       14:00 - 15:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Лекция</span></td>
+                           <td><span>------</span></td>
+                           <td><h6 class="font-weight-semibold mb-0">88</h6></td>
+                           <td><span class="badge bg-blue">Хорошо</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Промышленные контроллеры</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       14:00 - 15:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Лекция</span></td>
+                           <td><span>------</span></td>
+                           <td><h6 class="font-weight-semibold mb-0">88</h6></td>
+                           <td><span class="badge bg-blue">Хорошо</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Промышленные контроллеры</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       14:00 - 15:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Лекция</span></td>
+                           <td><span>------</span></td>
+                           <td><h6 class="font-weight-semibold mb-0">88</h6></td>
+                           <td><span class="badge bg-blue">Хорошо</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Промышленные контроллеры</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       14:00 - 15:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Лекция</span></td>
+                           <td><span>------</span></td>
+                           <td><h6 class="font-weight-semibold mb-0">88</h6></td>
+                           <td><span class="badge bg-blue">Хорошо</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Промышленные контроллеры</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       14:00 - 15:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Лекция</span></td>
+                           <td><span>------</span></td>
+                           <td><h6 class="font-weight-semibold mb-0">88</h6></td>
+                           <td><span class="badge bg-blue">Хорошо</span></td>
+                        </tr>
+
+                        <tr class="table-active table-border-double">
+                           <td colspan="5">Вторник</td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+
+                        <tr class="table-active table-border-double">
+                           <td colspan="5">Среда</td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+
+                        <tr class="table-active table-border-double">
+                           <td colspan="5">Четверг</td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+
+                        <tr class="table-active table-border-double">
+                           <td colspan="5">Пятница</td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#">
+                                       <img src="/media/brands/dribbble.png" class="rounded-circle" width="32" height="32" alt="">
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold">Надежность систем управления</a>
+                                    <div class="text-muted font-size-sm">
+                                       <span class="badge badge-mark border-success-300 mr-1"></span>
+                                       15:00 - 16:00
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td><span class="text-muted">Практика</span></td>
+                           <td><span class="text-success-300">95</span>
+                           </td>
+                           <td><h6 class="font-weight-semibold mb-0">85</h6></td>
+                           <td><span class="badge bg-success-400">Отлично</span></td>
+                        </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-xl-4">
+               <!-- Daily sales -->
+               <div class="card">
+                  <div class="card-header" style="padding-bottom: 0">
+                     <div class="header-elements">
+                        <div class="mb-2">
+                           <select class="custom-select">
+                              <option value="val1">Выберите группу</option>
+                              <option value="val2">АУ-701</option>
+                              <option value="val3">АУ-703</option>
+                              <option value="val4">АУ-705</option>
+                           </select>
+                        </div>
+
+                        <div>
+                           <select class="custom-select">
+                              <option value="val1">Выберите студента</option>
+                              <option value="val2">Джон Уик</option>
+                              <option value="val3">Джони Деп</option>
+                              <option value="val4">Джон Джонс</option>
+                              <option value="val4">Джон Кеннеди</option>
+                           </select>
+                        </div>
+                     </div>
+
+                     <div class="media">
+                        <div class="mr-3">
+                           <a href="#">
+                              <img src="/media/demo/users/face11.jpg" width="38" height="38" class="rounded-circle" alt="">
+                           </a>
+                        </div>
+
+                        <div>
+                           <h6 class="card-title">Джони Деп</h6>
+                           <div class="text-muted font-size-sm">АУ-701</div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="card-body">
+                     <div class="chart" id="sales-heatmap"></div>
+                  </div>
+
+                  <div class="table-responsive">
+                     <table class="table text-nowrap">
+                        <thead>
+                        <tr>
+                           <th class="w-100">Студенты</th>
+                           <th>Группа</th>
+                           <th>GPA</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+                                       <span class="letter-icon"></span>
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Кристина Айгелера</a>
+                                    <div class="text-muted font-size-sm">Студент</div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <span class="text-muted font-size-sm">АУ-701</span>
+                           </td>
+                           <td>
+                              <h6 class="font-weight-semibold mb-0">2</h6>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+                                       <span class="letter-icon"></span>
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Кристина Айгелера</a>
+                                    <div class="text-muted font-size-sm">Студент</div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <span class="text-muted font-size-sm">АУ-701</span>
+                           </td>
+                           <td>
+                              <h6 class="font-weight-semibold mb-0">2</h6>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+                                       <span class="letter-icon"></span>
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Кристина Айгелера</a>
+                                    <div class="text-muted font-size-sm">Студент</div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <span class="text-muted font-size-sm">АУ-701</span>
+                           </td>
+                           <td>
+                              <h6 class="font-weight-semibold mb-0">2</h6>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+                                       <span class="letter-icon"></span>
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Кристина Айгелера</a>
+                                    <div class="text-muted font-size-sm">Студент</div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <span class="text-muted font-size-sm">АУ-701</span>
+                           </td>
+                           <td>
+                              <h6 class="font-weight-semibold mb-0">2</h6>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+                                       <span class="letter-icon"></span>
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Кристина Айгелера</a>
+                                    <div class="text-muted font-size-sm">Студент</div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <span class="text-muted font-size-sm">АУ-701</span>
+                           </td>
+                           <td>
+                              <h6 class="font-weight-semibold mb-0">2</h6>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+                                       <span class="letter-icon"></span>
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Кристина Айгелера</a>
+                                    <div class="text-muted font-size-sm">Студент</div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <span class="text-muted font-size-sm">АУ-701</span>
+                           </td>
+                           <td>
+                              <h6 class="font-weight-semibold mb-0">2</h6>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-3">
+                                    <a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+                                       <span class="letter-icon"></span>
+                                    </a>
+                                 </div>
+                                 <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Кристина Айгелера</a>
+                                    <div class="text-muted font-size-sm">Студент</div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <span class="text-muted font-size-sm">АУ-701</span>
+                           </td>
+                           <td>
+                              <h6 class="font-weight-semibold mb-0">2</h6>
+                           </td>
+                        </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <!-- /daily sales -->
+
+
+               <!-- My messages -->
+               <div class="card">
+                  <div class="card-header header-elements-inline">
+                     <h6 class="card-title">Замечание учителей</h6>
+                     <div class="header-elements">
+                        <span class="badge bg-success align-self-start ml-3">Online</span>
+                     </div>
+                  </div>
+
+                  <!-- Numbers -->
+                  <div class="card-body py-0">
+                     <div class="row text-center">
+                        <div class="col-4">
+                           <div class="mb-3">
+                              <h5 class="font-weight-semibold mb-0"></h5>
+                              <span class="text-muted font-size-sm"></span>
+                           </div>
+                        </div>
+
+                        <div class="col-4">
+                           <div class="mb-3">
+                              <h5 class="font-weight-semibold mb-0">3,568</h5>
+                              <span class="text-muted font-size-sm">Сообщении</span>
+                           </div>
+                        </div>
+
+                        <div class="col-4">
+                           <div class="mb-3">
+                              <h5 class="font-weight-semibold mb-0"></h5>
+                              <span class="text-muted font-size-sm"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- /numbers -->
+
+                  <!-- Tabs content -->
+                  <div class="tab-content card-body">
+                     <ul class="media-list">
+                        <li class="media">
+                           <div class="mr-3 position-relative">
+                              <img src="/media/demo/users/face10.jpg" class="rounded-circle" width="36" height="36" alt="">
+                           </div>
+
+                           <div class="media-body">
+                              <div class="d-flex justify-content-between">
+                                 <a href="#">James Alexander</a>
+                                 <span class="font-size-sm text-muted">14:58</span>
+                              </div>
+
+                              The constitutionally inventoried precariously...
+                           </div>
+                        </li>
+
+                        <li class="media">
+                           <div class="mr-3 position-relative">
+                              <img src="/media/demo/users/face3.jpg" class="rounded-circle" width="36" height="36" alt="">
+                           </div>
+
+                           <div class="media-body">
+                              <div class="d-flex justify-content-between">
+                                 <a href="#">Margo Baker</a>
+                                 <span class="font-size-sm text-muted">12:16</span>
+                              </div>
+
+                              Pinched a well more moral chose goodness...
+                           </div>
+                        </li>
+
+                        <li class="media">
+                           <div class="mr-3">
+                              <img src="/media/demo/users/face24.jpg"
+                                   class="rounded-circle" width="36" height="36" alt="">
+                           </div>
+
+                           <div class="media-body">
+                              <div class="d-flex justify-content-between">
+                                 <a href="#">Jeremy Victorino</a>
+                                 <span class="font-size-sm text-muted">09:48</span>
+                              </div>
+
+                              Pert thickly mischievous clung frowned well...
+                           </div>
+                        </li>
+
+                        <li class="media">
+                           <div class="mr-3">
+                              <img src="/media/demo/users/face4.jpg" class="rounded-circle"
+                                   width="36" height="36" alt="">
+                           </div>
+
+                           <div class="media-body">
+                              <div class="d-flex justify-content-between">
+                                 <a href="#">Beatrix Diaz</a>
+                                 <span class="font-size-sm text-muted">05:54</span>
+                              </div>
+
+                              Nightingale taped hello bucolic fussily cardinal...
+                           </div>
+                        </li>
+
+                        <li class="media">
+                           <div class="mr-3">
+                              <img src="/media/demo/users/face25.jpg"
+                                   class="rounded-circle" width="36" height="36" alt="">
+                           </div>
+
+                           <div class="media-body">
+                              <div class="d-flex justify-content-between">
+                                 <a href="#">Richard Vango</a>
+                                 <span class="font-size-sm text-muted">01:43</span>
+                              </div>
+
+                              Amidst roadrunner distantly pompously where...
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- /tabs content -->
+
+               </div>
+               <!-- /my messages -->
+            </div>
+         </div>
+         <!-- /dashboard content -->
+      </div>
+      <!-- /content area -->
+
+      <!-- Footer -->
+      <div class="navbar navbar-expand-lg navbar-light">
+         <div class="text-center d-lg-none w-100">
+            <button type="button" class="navbar-toggler">
+               Footer
+            </button>
+         </div>
+
+         <div class="navbar-collapse collapse" id="navbar-footer">
+            <span class="navbar-text">&copy; 2020</span>
+         </div>
+      </div>
+      <!-- /footer -->
+
+   </div>
+   <!-- /main content -->
+
+</div>
+<!-- /page content -->
+
+</body>
+</html>

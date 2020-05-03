@@ -1,0 +1,22 @@
+<div class="news-more">
+   <h3 class="text-title news-more__title">Последние новости</h3>
+
+   <div class="news-more-box">
+      {% for post in latest_news %}
+         <div class="news-more__item">
+            {% if post.img %}
+            <div class="news-more__img">
+               <img src="{{ post.img.url }}" alt="news">
+            </div>
+            {% endif %}
+
+            <a class="app-more__link text-decor-none" href="{{ post.get_absolute_url }}">
+               {{ post.title }}
+            </a>
+               
+            <p class="news-more__author">Автор: {{ post.author.get_full_name }}<span>|</span> {{ post.get_comment_count }} Комментариев</p>
+         </div>
+      {% endfor %}
+      </div>
+   </div>
+</div>

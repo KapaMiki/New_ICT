@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}ATU - Тесты{% endblock %}
+
+{% block content %}
+   <div class="app-header parallax-window" data-parallax="scroll" data-image-src="/media/background-images/post.jpg">
+      <h1>Тесты</h1>
+   </div>
+
+   <section id="news-section" class="news-section section">
+      <div class="wrapper">
+         <ul class="uk-breadcrumb breadcrumb">
+            <li><a href="{% url 'home_url' %}">Главная</a></li>
+            <li><span>Тесты</span></li>
+         </ul>
+
+         <div class="app-wrap flex j-sb">
+            <div class="app-box">
+               <!-- {% if user.is_authenticated %}
+                  <a class="add-post text-decor-none transition" href="{% url 'news_add_url' %}">Добавить пост</a>
+               {% endif %} -->
+
+               {% for post in posts %}
+                  <div class="app-box__item">
+                     {% if post.img %}
+                        <div class="app-box__img">
+                           <img src="{{ post.img.url }}" alt="news">
+                        </div>
+                     {% endif %}
+
+                     <div class="app-box__container flex">
+                        <div>
+                           <p class="app-box__date">{{ post.date|date:"d"}} <span>{{ post.date|date:"M"}}</span><span>{{ post.date|date:"Y"}}</span></p>
+
+                           {% if post.author == user %}
+                              <div class="uk-inline">
+                                 <button class="app-action-button uk-button-small uk-button-default" type="button">Еще</button>
+
+                                 <div class="app-action-dropdown" uk-dropdown="mode: click; pos: top-justify;">
+                                    <p>
+                                       <a href="{% url 'news_update_url' post.id %}" class="app-action-button__link app-action-button__link-edit text-decor-none transition">Редактировать
+                                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                                       </a>
+                                    </p>
+                                    <p>
+                                       <a href="{% url 'news_delete_url' post.id %}" class="app-action-button__link app-action-button__link-delete text-decor-none transition">Удалить пост
+                                          <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                       </a>
+                                    </p>
+                                 </div>
+                              </div>
+                           {% endif %}
+                        </div>
+
+                        <div class="app-box__title">
+                           <div class="flex j-sb flex-align-center">
+                              <a class="text-decor-none" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                              <!-- <img class="author-ava" src="{{ post.author.profile.img.url }}"> -->
+                           </div>
+                           <!-- <p class="app-box__author">Автор: {{ post.author.last_name }} {{ post.author.first_name }}| {{ post.get_comment_count }} Комментариев</p> -->
+                        </div>
+                     </div>
+
+                     <p class="text-desc app-box__desc">
+                        {{ post.text|striptags|truncatechars:250 }}
+                     </p>
+
+                     <a class="app-box__more text-decor-none transition" href="{{ post.get_absolute_url }}">Читать далее</a>
+                  </div>
+               {% endfor %}
+
+               {% if is_paginated %}
+                  <ul class="uk-pagination" uk-margin>
+                     {% if page_obj.has_previous %}
+                        <li><a href="{% url 'news_url' %}" uk-tooltip="title: Начало; delay: 300"><span uk-pagination-previous></span><span uk-pagination-previous></span></a></li>
+                        <li><a href="?page={{ page_obj.previous_page_number }}" uk-tooltip="title: Предыдущая; delay: 300"><span uk-pagination-previous></span></a></li>
+                     {% endif %}
+
+                     {% for num in page_obj.paginator.page_range %}
+                        {% if num ==  page_obj.number %}
+                           <li class="uk-active"><span>{{ num }}</span></li>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                           <li><a href="?page={{ num }}">{{ num }}</a></li>
+                        {% endif %}
+                     {% endfor %}
+
+                     {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" uk-tooltip="title: Следующая; delay: 300"><span uk-pagination-next></span></a></li>
+                        <li><a href="?page={{ page_obj.paginator.num_pages }}" uk-tooltip="title: Последняя; delay: 300"><span uk-pagination-next></span><span uk-pagination-next></span></a></li>
+                     {% endif %}
+                  </ul>
+              {% endif %}
+            </div>
+
+            {% include 'includes/latest_news.html' %}
+         </div>
+      </div>
+   </section>
+
+   <script>
+      const activeListItem = document.querySelectorAll('.responsive-menu-box li')[1];
+      activeListItem.classList.add('uk-active');
+   </script>
+{% endblock content %}

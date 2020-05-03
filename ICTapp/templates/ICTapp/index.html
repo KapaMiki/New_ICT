@@ -1,0 +1,390 @@
+{% extends 'base.html' %}
+{% block title %}Факультет - ИКТ. Университет им.Шакарима{% endblock title %}
+
+{% block content %}
+   <header>
+      <div class="principal">
+         <h1>Университет им.Шакарима</h1>
+         <p>Информационно-коммуникационные технологии</p>
+      </div>
+
+      <div class="links flex j-sb">
+         <a href="{% url 'specialty_url' %}" class="text-decor-none links-box transition">
+            <div class="links_item flex j-se">
+               <div class="links_icon">
+                  <img src="/media/img/books.svg" alt="books">
+               </div>
+               <div class="links_text">
+                  <p class="links-title transition">Специальности</p>
+                  <p class="view-more transition">View more</p>
+               </div>
+            </div>
+         </a>
+
+         <a href="{% url 'informations_url' %}" class="text-decor-none links-box transition">
+            <div class="links_item flex j-se">
+               <div class="links_icon">
+                  <img src="/media/img/earth-globe.svg" alt="earth-globe">
+               </div>
+               <div class="links_text">
+                  <p class="links-title transition">Жизнь в университете</p>
+                  <p class="view-more transition">View more</p>
+               </div>
+            </div>
+         </a>
+
+         <a href="{% url 'staff_url' %}" class="text-decor-none links-box transition">
+            <div class="links_item flex j-se">
+               <div class="links_icon">
+                  <img src="/media/img/professor.svg" alt="professor">
+               </div>
+               <div class="links_text">
+                  <p class="links-title transition">Персонал</p>
+                  <p class="view-more transition">View more</p>
+               </div>
+            </div>
+         </a>
+      </div>
+   </header>
+
+   <section id="responsive-links" class="responsive-links section">
+      <div class="wrapper">
+         <div class="responsive-links-container">
+            <a href="{% url 'specialty_url' %}" class="text-decor-none responsive-links-box transition">
+               <div class="responsive-links_item flex">
+                  <div class="responsive-links_icon">
+                     <img src="/media/img/books.svg" alt="books">
+                  </div>
+                  <div class="responsive-links_text">
+                     <p class="links-title transition">Специальности</p>
+                     <p class="view-more transition">View more</p>
+                  </div>
+               </div>
+            </a>
+
+            <a href="{% url 'informations_url' %}" class="text-decor-none responsive-links-box transition">
+               <div class="responsive-links_item flex">
+                  <div class="responsive-links_icon">
+                     <img src="/media/img/earth-globe.svg" alt="earth-globe">
+                  </div>
+                  <div class="responsive-links_text">
+                     <p class="links-title transition">Жизнь в университете</p>
+                     <p class="view-more transition">View more</p>
+                  </div>
+               </div>
+            </a>
+
+            <a href="{% url 'staff_url' %}" class="text-decor-none responsive-links-box transition">
+               <div class="responsive-links_item flex">
+                  <div class="responsive-links_icon">
+                     <img src="/media/img/professor.svg" alt="professor">
+                  </div>
+                  <div class="responsive-links_text">
+                     <p class="links-title transition">Персонал</p>
+                     <p class="view-more transition">View more</p>
+                  </div>
+               </div>
+            </a>
+         </div>
+      </div>
+   </section>
+
+   <section id="register" class="register">
+      <div class="register-info">
+         <div class="register-wrap">
+            <h2 class="register-title">О нас</h2>
+
+            <p class="register-desc">
+               Специалисты, обладающие профессиональными знаниями в области информационных
+               технологий, автоматизации и управлении, вычислительной техники, разработки
+               программного обеспечения, в области строительства, всегда востребованы на
+               рынке труда и спрос на таких специалистов неуклонно растет. Подготовкой
+               специалистов данного профиля ведется в государственном университете имени
+               Шакарима на факультете информационно-коммуникационных технологий.
+               В состав факультета входит 3 кафедры и 3 филиала кафедр на базе производства,
+               которые ведут подготовку по специальностям
+            </p>
+
+         </div>
+      </div>
+
+      <div class="register-form">
+         <div class="register-wrap">
+            <h2 class="register-title">Наша история</h2>
+
+            <p class="register-desc">
+               Факультет информационно-коммуникационных технологий создан
+               в 2004 году на базе кафедр «Автоматика и управление», 
+               «Информационные системы», «Высшая математика», «Информатика»,
+               «Дизайн и инженерная графика». 
+            </p>
+            
+         </div>
+      </div>
+   </section>
+
+   <section id="services" class="services section">
+      <div class="wrapper">
+         <h2 class="section-title">Почему мы?</h2>
+
+         <div class="services-box flex j-sb flex-wrap">
+            <div class="services-box__item">
+               <div class="services-box__icon">
+                  <img src="/media/img/earth-globe.svg" alt="envelope">
+               </div>
+
+               <h2 class="text-title services-box__title">Двудипломное образование</h2>
+
+               <p class="text-desc services-box__desc">
+                  В данном направлении продолжается работа
+                  по подготовке студентов по программе двудипломного образования. На основе
+                  Меморандума о взаимопонимании по обмену со студентами между ГУ имени 
+                  Шакарима и Джионгсангским национальным университетом разработан совместный
+                  учебный план по подготовке специалистов по программе 2+2
+               </p>
+            </div>
+
+            <div class="services-box__item">
+               <div class="services-box__icon">
+                  <img src="/media/img/exam.svg" alt="envelope">
+               </div>
+
+               <h2 class="text-title services-box__title">Проекты</h2>
+
+               <p class="text-desc services-box__desc">
+                  Привлечение ученых и ведущих специалистов факультета к участию в конкурсах
+                  (включая международные) и выполнению совместных фундаментальных, прикладных
+                  и инновационных проектов, в том числе, с целью коммерциализации научных разработок.
+               </p>
+            </div>
+
+            <div class="services-box__item">
+               <div class="services-box__icon">
+                  <img src="/media/img/books.svg" alt="envelope">
+               </div>
+
+               <h2 class="text-title services-box__title">Цели</h2>
+
+               <p class="text-desc services-box__desc">
+                  Принципиальными целями и масштабными идеями университета являются создание
+                  научно-образовательного центра с высококвалифицированным научно- 
+                  педагогическим потенциалом и развитой современной материально-технической
+                  базой, развитие дуального профессионального образования, подготовка 
+                  высококвалифицированных специалистов.
+               </p>
+            </div>
+
+            <div class="services-box__item">
+               <div class="services-box__icon">
+                  <img src="/media/img/professor.svg" alt="envelope">
+               </div>
+
+               <h2 class="text-title services-box__title">Трудоустройство</h2>
+
+               <p class="text-desc services-box__desc">
+                  <strong>Рейтинг трудоустройства выпускников университета - 98%</strong><br>
+                  Благодаря своей репутации одного из лучших вузов Казахстана и тесными связям
+                  с компаниями и других секторов, Университет им.Шакарима открывает широкие возможности
+                  трудоустройства для своих выпускников.
+               </p>
+            </div>
+
+            <div class="services-box__item">
+               <div class="services-box__icon">
+                  <img src="/media/img/blackboard.svg" alt="envelope">
+               </div>
+
+               <h2 class="text-title services-box__title">Профессорско-преподавательский состав</h2>
+
+               <p class="text-desc services-box__desc">
+                  Высококвалифицированные специалисты в различных областях математики 100 % ППС - доктора наук и кандидаты наук
+               </p>
+            </div>
+
+            <div class="services-box__item">
+               <div class="services-box__icon">
+                  <img src="/media/img/mortarboard.svg" alt="envelope">
+               </div>
+
+               <h2 class="text-title services-box__title">Универсализм</h2>
+
+               <p class="text-desc services-box__desc">
+                  Универсализм - главное наше преимущество, ведь какое направление не выбери,
+                  а информоционные технологии лежит в основе всего. Востребованность выпускников. Благодаря
+                  универсализму выпускники реализуют себя в любой сфере деятельности
+               </p>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="about-us" class="about-us section">
+      <div class="wrapper">
+         <h2 class="section-title">Что говорят наши студенты</h2>
+
+         <div class="slider-review uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 300">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+               <ul class="slider-review-box uk-slideshow-items">
+                  <li class="slider-review__item">
+                     <div class="about-us-quote">“</div>
+
+                     <p class="about-us-text">
+                        In aliquam, augue a gravida rutrum,
+                        ante nisl fermentum nulla, vitae
+                        tempor nisl ligula vel nunc. Proin
+                        quis mi malesuada, finibus tortor
+                        fermentum.In aliquam, augue a gravida
+                        rutrum, ante nisl fermentum nulla,
+                        vitae tempor nisl ligula vel nunc.
+                        Proin quis mi malesuada, finibus tortor fermentum.
+                     </p>
+      
+                     <div class="about-us-user">
+                        <div class="about-us-img">
+                           <img src="/media/img/testimonials_user.jpg" alt="ИКТ-отзывы">
+                        </div>
+
+                        <p class="about-us-name">Имя Фамилия</p>
+                        <p class="about-us-title">Выпускник</p>
+                     </div>
+                  </li>
+                  
+                  <li class="slider-review__item">
+                     <div class="about-us-quote">“</div>
+
+                     <p class="about-us-text">
+                        In aliquam, augue a gravida rutrum,
+                        ante nisl fermentum nulla, vitae
+                        tempor nisl ligula vel nunc. Proin
+                        quis mi malesuada, finibus tortor
+                        fermentum.In aliquam, augue a gravida
+                        rutrum, ante nisl fermentum nulla,
+                        vitae tempor nisl ligula vel nunc.
+                        Proin quis mi malesuada, finibus tortor fermentum.
+                     </p>
+      
+                     <div class="about-us-user">
+                        <div class="about-us-img">
+                           <img src="/media/img/testimonials_user.jpg" alt="ИКТ-отзывы">
+                        </div>
+
+                        <p class="about-us-name">Имя Фамилия</p>
+                        <p class="about-us-title">Выпускник</p>
+                     </div>
+                  </li>
+
+                  <li class="slider-review__item">
+                     <div class="about-us-quote">“</div>
+
+                     <p class="about-us-text">
+                        In aliquam, augue a gravida rutrum,
+                        ante nisl fermentum nulla, vitae
+                        tempor nisl ligula vel nunc. Proin
+                        quis mi malesuada, finibus tortor
+                        fermentum.In aliquam, augue a gravida
+                        rutrum, ante nisl fermentum nulla,
+                        vitae tempor nisl ligula vel nunc.
+                        Proin quis mi malesuada, finibus tortor fermentum.
+                     </p>
+      
+                     <div class="about-us-user">
+                        <div class="about-us-img">
+                           <img src="/media/img/testimonials_user.jpg" alt="ИКТ-отзывы">
+                        </div>
+
+                        <p class="about-us-name">Имя Фамилия</p>
+                        <p class="about-us-title">Выпускник</p>
+                     </div>
+                  </li>
+               </ul>
+
+               <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+               <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+            </div>
+
+            <ul class="slider-review-dotnav uk-slideshow-nav uk-dotnav uk-flex-center uk-margin flex-align-center"></ul>
+         </div>
+      </div>
+   </section>
+
+   <section id="news-slider" class="news-slider section">
+      <div>
+         <h2 class="section-title">Новости</h2>
+
+         <div class="news-slider-box uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active; center: true; autoplay: false; autoplay-interval: 4000">
+            <ul class="uk-slider-items uk-grid news-slider-container">
+               {% for post in posts %}
+                  <li class="uk-width-2-5">
+                     <div class="uk-panel">
+                        {% if post.img %}
+                           <div class="news-slider-img-container">
+                              <img src="{{ post.img.url }}" alt="ИКТ-новости">
+                           </div>
+                        {% else %}
+                           <div class="news-slider-img-container">
+                              <img src="/media/post.jpg" alt="ИКТ-новости">
+                           </div>
+                        {% endif %}
+                        <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                           <h3 class="uk-margin-remove">{{ post.title|safe }}</h3>
+                           <p class="uk-margin-remove">{{ post.text|safe|truncatechars:30 }}</p>
+                           <a class="text-decor-none slider-btn transition" href="{{ post.get_absolute_url }}">Подробнее</a>
+                        </div>
+                     </div>
+                  </li>
+               {% endfor %}
+            </ul>
+            
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+         </div>
+      </div>
+   </section>
+
+   <script>
+      const activeListItem = document.querySelector('.responsive-menu-box li');
+      activeListItem.classList.add('uk-active');
+
+      // Кэш
+      function preloadImages() {
+         const array = [
+            '/media/img/1.jpg',
+            '/media/img/2.jpg',
+            '/media/img/3.jpg',
+            '/media/img/4.jpg',
+            '/media/img/5.jpg'
+         ];
+
+         if (!preloadImages.list) preloadImages.list = [];
+
+         const list = preloadImages.list;
+
+         array.forEach(item => {
+            const img = new Image();
+
+            img.addEventListener('load', () => {
+               const idx = list.indexOf(this);
+               if (idx !== -1) list.splice(idx, 1)
+            });
+
+            img.src = item;
+            list.push(img);
+         });
+
+         const backgrounds = list.map(item => `url('${item.src}')`);
+         const content = document.querySelector('header');
+         let current = 0;
+
+         function nextBackground() {
+            current++;
+            current = current % backgrounds.length;
+            content.style.backgroundImage = backgrounds[current];
+         }
+
+         setInterval(nextBackground, 6000);
+         content.style.backgroundImage = backgrounds[current];
+      }
+
+      window.addEventListener('load', preloadImages)
+   </script>
+{% endblock content %}

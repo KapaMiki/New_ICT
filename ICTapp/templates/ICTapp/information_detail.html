@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}ICT - Жизнь в университете{% endblock %}
+
+{% block content %}
+   <div class="app-header parallax-window" data-parallax="scroll" data-image-src="/media/background-images/student-life.jpg">
+      <h1>Жизнь в университете</h1>
+   </div>
+
+   <section id="information" class="information-section section">
+      <div class="wrapper">
+         <ul class="uk-breadcrumb breadcrumb">
+            <li><a href="{% url 'home_url' %}">Главная</a></li>
+            <li><a href="{% url 'informations_url' %}">Жизнь в университете</a></li>
+            <li><span>Актовый зал</span></li>
+         </ul>
+
+         <div class="app-wrap flex j-sb">
+            <div class="app-box">
+               <div class="app-box__item">
+                  {% if information.img_main %}
+                     <div class="app-box__img app-desc-margin-b">
+                        <div uk-lightbox>
+                           <a href="{{ information.img_main.url }}" data-caption="">
+                              <img src="{{ information.img_main.url }}" alt="ИКТ">
+                           </a>
+                        </div>
+                     </div>
+                  {% endif %}
+                     <div class="app-box__img-container flex j-sb flex-wrap" uk-lightbox="animation: slide">
+                        {% if information.img_1 %}
+                           <div class="app-img-container__item">
+                              <a class="uk-inline uk-dark" href="{{ information.img_1.url }}" data-caption="">
+                                 <img class="app-img-container__pic" src="{{ information.img_1.url }}" alt="ИКТ">
+
+                                 <div class="teachers-overlay-link transition uk-overlay-primary uk-position-cover">
+                                    <div class="uk-position-center">
+                                       <span uk-overlay-icon></span>
+                                    </div>
+                                 </div>
+                              </a>
+                           </div>
+                        {% endif %}
+                        {% if information.img_2 %}
+                           <div class="app-img-container__item">
+                              <a class="uk-inline uk-dark" href="{{ information.img_2.url }}" data-caption="">
+                                 <img src="{{ information.img_2.url }}" alt="ИКТ">
+                                 
+                                 <div class="teachers-overlay-link transition uk-overlay-primary uk-position-cover">
+                                    <div class="uk-position-center">
+                                       <span uk-overlay-icon></span>
+                                    </div>
+                                 </div>
+                              </a>
+                           </div>
+                        {% endif %}
+                        {% if information.img_3 %}
+                           <div class="app-img-container__item">
+                              <a class="uk-inline uk-dark" href="{{ information.img_3.url }}" data-caption="">
+                                 <img src="{{ information.img_3.url }}" alt="ИКТ">
+                                 
+                                 <div class="teachers-overlay-link transition uk-overlay-primary uk-position-cover">
+                                    <div class="uk-position-center">
+                                       <span uk-overlay-icon></span>
+                                    </div>
+                                 </div>
+                              </a>
+                           </div>
+                        {% endif %}
+                     </div>
+                  <div class="app-box__container information-box__container flex flex-align-center">
+                     <p class="app-box__date app-box__responsive-date">16 <span>Регион</span></p>
+   
+                     <div class="app-box__title">
+                        <a>{{ information.title }}</a>
+                        <p class="app-box__author">{{ information.location }}</p>
+                     </div>
+                  </div>
+
+                  <p class="app-box__desc text-desc app-desc-margin-b">{{ information.text|safe }}</p>
+               </div>
+            </div>
+            
+            {% include 'includes/latest_news.html' %}
+         </div>
+      </div>
+   </section>
+
+   <script>
+      const activeListItem = document.querySelectorAll('.responsive-menu-box li')[3];
+      activeListItem.classList.add('uk-active');
+   </script>
+{% endblock content %}

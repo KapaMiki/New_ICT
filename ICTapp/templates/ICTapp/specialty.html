@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}ATU - Лекции{% endblock %}
+
+{% block content %}
+   <div class="app-header parallax-window" data-parallax="scroll" data-image-src="/media/background-images/books.jpg">
+      <h1>Лекции</h1>
+   </div>
+
+   <section id="speciality" class="speciality section">
+      <div class="wrapper">         
+         <ul class="uk-breadcrumb breadcrumb">
+            <li><a href="{% url 'home_url' %}">Главная</a></li>
+            <li><span>Лекции</span></li>
+         </ul>
+
+         <div class="speciality-box flex j-sb flex-wrap">
+            {% for speciality in specialty %}
+               <div class="speciality-box__item">
+                  <div class="speciality-box__img">
+                     <img src="{{ speciality.img.url }}" alt="ИКТ-специальности">
+                  </div>
+   
+                  <div class="speciality-box__text flex flex-align-center">
+                     <p class="speciality-box__title text-title">{{ speciality.name }}</p>
+                  </div>
+   
+                  <!-- <a class="speciality-box__link text-decor-none transition" href="{{ speciality.get_absolute_url }}">Подробнее</a> -->
+                  <form action="{% url 'download_lecture' speciality.id %}" method="POST">
+                  {% csrf_token %}
+                     <button class="speciality-box__link text-decor-none transition" style="width:100%">
+                        Скачать
+                     </button>
+                  </form>
+               </div>
+            {% endfor %}
+         </div>
+      </div>
+   </section>
+
+   <script>
+      const activeListItem = document.querySelectorAll('.responsive-menu-box li')[2];
+      activeListItem.classList.add('uk-active');
+   </script>
+{% endblock content %}

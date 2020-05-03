@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}ICT - Добавление статьи{% endblock title %}
+
+{% block content %}
+   <div class="app-header" style="background: url('/media/img/news_background.jpg');">
+      <h1>Добавление статьи</h1>
+   </div>
+   <div class="wrapper">
+      <div class="profile-wrapper">
+         <div class="profile">
+            {% if messages %}
+               {% for mess in messages %}
+                  <div>
+                     {{ mess }}
+                  </div>
+               {% endfor %}
+            {% endif %}
+         </div>
+         <div class="profile">
+            <form class="add-post-form" method="POST" enctype="multipart/form-data">
+               {% csrf_token %}
+               {{ form.as_p }}
+               <button class="transition" type="submit">Добавить</button>
+            </form>
+         </div>
+      </div>
+   </div>
+
+   <script>
+      const input = document.querySelectorAll('.add-post-form input')[1];
+      const textarea = document.querySelectorAll('.add-post-form textarea')[0];
+
+      input.placeholder = 'Заголовок';
+      textarea.placeholder = 'Введите текст';
+   </script>
+{% endblock content %}

@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+   <div class="app-header parallax-window" data-parallax="scroll" data-image-src="/media/background-images/post.jpg">
+      <h1>Тест</h1>
+   </div>
+
+   <section id="news-section" class="news-section section">
+      <div class="wrapper">
+         <ul class="uk-breadcrumb breadcrumb">
+            <li><a href="{% url 'home_url' %}">Главная</a></li>
+            <li><a href="{% url 'news_url' %}">Тесты</a></li>
+            <li><span>Подробнее</span></li>
+         </ul>
+
+         <div class="app-wrap flex j-sb">
+            <div class="app-box">
+               {% if messages %}
+                  {% for mess in messages %}
+                     <p>{{ mess }}</p>
+                  {% endfor %}
+               {% endif %}
+               <div class="app-box__item">
+                  {% if post.img %}
+                     <div class="app-box__img app-desc-margin-b">
+                        <img src="{{ post.img.url }}" alt="news">
+                     </div>
+                  {% endif %}
+                  <!-- <div class="app-box__img-container flex j-sb flex-wrap" uk-lightbox="animation: slide">
+                     {% if post.img_1 %}
+                        <div class="app-img-container__item">
+                           <a class="uk-inline uk-dark" href="{{ post.img_1.url }}" data-caption="">
+                              <img class="app-img-container__pic" src="{{ post.img_1.url }}" alt="ИКТ">
+
+                              <div class="teachers-overlay-link transition uk-overlay-primary uk-position-cover">
+                                 <div class="uk-position-center">
+                                    <span uk-overlay-icon></span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     {% endif %}
+                     {% if post.img_2 %}
+                        <div class="app-img-container__item">
+                           <a class="uk-inline uk-dark" href="{{ post.img_2.url }}" data-caption="">
+                              <img src="{{ post.img_2.url }}" alt="ИКТ">
+                              
+                              <div class="teachers-overlay-link transition uk-overlay-primary uk-position-cover">
+                                 <div class="uk-position-center">
+                                    <span uk-overlay-icon></span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     {% endif %}
+                     {% if post.img_3 %}
+                        <div class="app-img-container__item">
+                           <a class="uk-inline uk-dark" href="{{ post.img_3.url }}" data-caption="">
+                              <img src="{{ post.img_3.url }}" alt="ИКТ">
+                              
+                              <div class="teachers-overlay-link transition uk-overlay-primary uk-position-cover">
+                                 <div class="uk-position-center">
+                                    <span uk-overlay-icon></span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     {% endif %}
+                     {% if post.img_4 %}
+                        <div class="app-img-container__item">
+                           <a class="uk-inline uk-dark" href="{{ post.img_4.url }}" data-caption="">
+                              <img src="{{ post.img_4.url }}" alt="ИКТ">
+                              
+                              <div class="teachers-overlay-link transition uk-overlay-primary uk-position-cover">
+                                 <div class="uk-position-center">
+                                    <span uk-overlay-icon></span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     {% endif %}
+                     </div> -->
+                  <div class="app-box__container flex">
+                     <div>
+                        <p class="app-box__date">{{ post.date|date:"d "}} <span>{{ post.date|date:"M"}}</span><span>{{ post.date|date:"Y"}}</span></p>
+                        {% if post.author == user %}
+                           <div class="uk-inline">
+                              <button class="app-action-button uk-button-small uk-button-default" type="button">Еще</button>
+                              <div class="app-action-dropdown" uk-dropdown="mode: click; pos: top-justify;">
+                                 <p>
+                                    <a href="{% url 'news_update_url' post.id %}" class="text-decor-none app-action-button__link app-action-button__link-edit transition">Редактировать
+                                       <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                 </p>
+                                 <p>
+                                    <a href="{% url 'news_delete_url' post.id %}" class="text-decor-none app-action-button__link app-action-button__link-delete transition">Удалить пост
+                                       <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </a>
+                                 </p>
+                              </div>
+                           </div>
+                        {% endif %}
+                     </div>
+
+                     <div class="app-box__title">
+                        <div class="flex j-sb flex-align-center">
+                           <a class="text-decor-none">{{ post.title }}</a>
+                           <img class="author-ava" src="{{ post.author.profile.img.url }}">
+                        </div>
+                        <p class="app-box__author">Автор: {{ post.author.last_name }} {{ post.author.first_name }}| {{ post.get_comment_count }} Комментариев</p>
+                     </div>
+                  </div>
+
+                  <p class="text-desc app-box__desc news-desc-margin-b">{{ post.text|safe }}</p>
+
+                  <!-- <h3 class="text-title app-detail__comment">Комментарий</h3> -->
+
+                  <div class="app-comment-box">
+                     <!-- {% for comment in comments %}
+                        <div class="app-comment-box__item flex">
+                           <div class="app-comment-box__ava">
+                              <img src="{{ comment.img.url }}" alt="">
+                           </div> -->
+
+                           <!-- <div class="app-comment-container">
+                              <div class="app-comment-container-main">
+                                 <p class="app-comment-box__author">{{ comment.full_name }} | {{ comment.date|date:"d M Y H:i "}} | <span class="app-comment-box__reply">Ответить</span></p>
+
+                                 <p class="app-comment-box__text text-desc">
+                                    {{ comment.text }}
+                                 </p>
+                              </div>
+                              <button class="app-comment-container-reply__show">
+                                 Показать 2 ответа
+                                 <!-- Скрыть ответы -->
+                                 <!-- <i class="fa fa-chevron-down" aria-hidden="true"></i> -->
+                                 <!-- <i class="fa fa-chevron-up" aria-hidden="true"></i> -->
+                              <!-- </button> --> 
+                              <!-- <div class="app-comment-container-reply">
+                                 <div class="app-comment-container-reply__item flex"> -->
+                                    <!-- <div class="app-comment-box__ava">
+                                       <img src="{{ comment.img.url }}" alt="">
+                                    </div> -->
+                                    <!-- <div class="app-comment-container-reply__comment">
+                                       <p class="app-comment-box__author">{{ comment.full_name }} | {{ comment.date|date:"d M Y H:i "}} | <span class="app-comment-box__reply">Ответить</span></p>
+
+                                       <p class="app-comment-box__text text-desc">
+                                          {{ comment.text }}
+                                       </p>
+                                    </div> -->
+                                 <!-- </div>
+                                 <div class="app-comment-container-reply__item flex">
+                                    <div class="app-comment-box__ava">
+                                       <img src="{{ comment.img.url }}" alt="">
+                                    </div> -->
+                                    <!-- <div class="app-comment-container-reply__comment">
+                                       <p class="app-comment-box__author">{{ comment.full_name }} | {{ comment.date|date:"d M Y H:i "}} | <span class="app-comment-box__reply">Ответить</span></p>
+
+                                       <p class="app-comment-box__text text-desc">
+                                          {{ comment.text }}
+                                       </p>
+                                    </div> -->
+                                 <!-- </div>
+                              </div>
+                           </div>
+                        </div>
+                     {% endfor %} -->
+
+                     <h3 class="text-title app-detail__comment">Ответить</h3>
+                  
+                     <div class="add-comment-form transition">
+                        <div class="uk-inline" style="width:100%">
+                           <button class="uk-button uk-button-default" type="button">Группа</button>
+                           <div uk-dropdown="mode: click">
+                              {% for group in groups %}
+                                 <a href="#" class="group" data-id="{{ group.id }}">
+                                    {{ group.name }}
+                                 </a>
+                              {% endfor %}
+                           </div>
+                       </div>
+                       <div class="uk-inline" style="width:100%">
+                           <button class="uk-button uk-button-default" type="button">Студент</button>
+                           <div uk-dropdown="mode: click">
+                              <p id="student"></p>
+                           </div>
+                        </div>
+                        <form method="POST">
+                           {% csrf_token %}
+                           {{ answer_form.as_p }}
+                           <button class="transition" type="submit">Ответить</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            {% include 'includes/latest_news.html' %}
+         </div>
+      </div>
+   </section>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+   <script>
+      $(document).ready(function(){
+         $('.group').on('click', function(e){
+            e.preventDefault()
+            group_id = $(this).attr('data-id')
+            console.log(group_id)
+            data = {
+               group_id:group_id
+            }
+            $.ajax({
+               type: "GET",
+               url: '{% url "group_students_url" %}',
+               data: data,
+               success: function(data){
+                  $("#student").html(data)
+               }
+            })
+         })
+      })
+   </script>
+
+   <script> 
+      const activeListItem = document.querySelectorAll('.responsive-menu-box li')[1];
+      const input = document.querySelectorAll('.add-comment-form input')[1];
+      const textarea = document.querySelectorAll('.add-comment-form textarea')[0];
+
+      activeListItem.classList.add('uk-active');
+      input.placeholder = 'Имя и фамилия';
+      textarea.placeholder = 'Комментаарий';
+   </script>
+
+{% endblock content %}
